@@ -43,7 +43,12 @@ table {
 
 /*                 global                   */
 
-
+button,button:active,button:focus{
+	background-color: transparent;
+	border-color: transparent;
+	font-family: Helvetica, sans-serif;
+	outline-color: grey;
+}
 body{
 	font-family: Helvetica, sans-serif;
 	-webkit-user-select: none;
