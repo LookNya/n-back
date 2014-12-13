@@ -5,13 +5,10 @@ document.onreadystatechange = function () {
 }
 function init(){
 	start.addEventListener('touchstart',game.start)
-	start.addEventListener('click',game.start)
 	reset.addEventListener('touchstart',game.reset)
-	reset.addEventListener('click',game.reset)
 	for(var i = 0; i < document.getElementsByClassName('nbut').length; i++){
 		game.setNums(i)
 		document.getElementsByClassName('nbut')[i].addEventListener('touchstart', game.nbutClick)
-		document.getElementsByClassName('nbut')[i].addEventListener('click', game.nbutClick)
 	}
 }
 
