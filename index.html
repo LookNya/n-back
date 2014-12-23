@@ -5,29 +5,31 @@
  <script src="scripts/main.js"></script>
 </head>
 <body>
-<div class="header">
-
-</div>
 <div id="content" class="begining">
-	<div id="task"></div>
-	<div id="gbcount"><div></div><div></div><div></div></div>
-	<div id="controls">
-		<button class="nbut">1</button>
-		<button class="nbut">2</button>
-		<button class="nbut">3</button>
-		<button class="nbut">4</button>
-		<button class="nbut">5</button>
-		<button class="nbut">6</button>
-		<button class="nbut">7</button>
-		<button class="nbut">8</button>
-		<button class="nbut">9</button>
-		<button class="nbut">0</button>
+	<div id="secs"></div>
+	<div class="top">
+		<div id="task"></div>
 	</div>
-	<div id="start">Начать</div>
-	<div id="reset"><div>Отмена</div></div>
-</div>
-<div class="footer">
-
+	<div class="mid">
+		<div class="recordsWrap"><div id="records"></div></div>
+		<div id="gbcount"><div><div></div></div><div><div></div></div><div><div></div></div></div>
+		<div id="controls">
+			<div class="nbut"><div data-num="1">1</div></div>
+			<div class="nbut"><div data-num="2">2</div></div>
+			<div class="nbut"><div data-num="3">3</div></div>
+			<div class="nbut"><div data-num="4">4</div></div>
+			<div class="nbut"><div data-num="5">5</div></div>
+			<div class="nbut"><div data-num="6">6</div></div>
+			<div class="nbut"><div data-num="7">7</div></div>
+			<div class="nbut"><div data-num="8">8</div></div>
+			<div class="nbut"><div data-num="9">9</div></div>
+			<div class="nbut"><div data-num="0">0</div></div>
+		</div>
+	</div>
+	<div class="bot">
+		<div id="start"><div>Начать</div></div>
+		<div id="reset"><div><div style="display:inline-block" id="resetTRUE">Отмена</div></div></div>
+	</div>
 </div>
 </body>
 </html>

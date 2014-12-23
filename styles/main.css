@@ -59,83 +59,135 @@ body{
 	text-align: center;
 	height: 100%;
 }
-.begining #task,.begining #controls,.begining #reset{
+#secs{
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px;
+	font-size: 20px;
+	z-index: 99999;
+}
+.top,.mid,.bot{
+	position: absolute;
+	height: 33.3%;
+	width: 100%;
+	left: 0;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+.top{
+	top: 0px;
+}
+.mid{
+	top: 33.3%;
+}
+.bot{
+	top: 66.6%;
+}
+.recordsWrap, .stagesWrap{
+	float: left;
+	width: 50%;
 	display: none;
 }
+#records, #stages{
+	width: 40%;
+	margin: 0 auto;
+}
+.begining #task,.begining #controls,.begining #reset,.begining #gbcount{
+	display: none!important;
+	height: 0px!important;
+}
 .begining #start{
+	display: table;
+}
+.begining .recordsWrap{
 	display: block;
 }
 .enter #task{
+	display: table;
+}
+.enter #controls{
 	display: block;
 }
-.enter #start,.enter #controls{
+.enter #start{
 	display: none;
 }
-.playing #task,.playing #controls{
+.playing #controls{
 	display: block;
 }
-.playing #reset,.enter #reset{
-	display: inline-block;
+.playing #task,.playing #reset,.enter #reset{
+	display: table;
 }
 .playing #start{
 	display: none;
 }
 #gbcount{
 	position: absolute;
-	top: 65%;
 	width:100%;
-	height:40%;
+	height:100%;
 	background: white;
 	display: none;
 	z-index:999;
 }
 #gbcount>div{
-	width:33%;
-	height:100px;
 	float: left;
-	background: white;	
+	width: 33.3%;
+}
+#gbcount>div>div{
+	background: white;
+	width: 10vmin;
+	height: 10vmin;
+	margin: 11.6vmin auto;
+	border-radius: 50%;
 }
 .st1,.st2,.st3{
 	display: block!important;
 }
-.st1>div:nth-child(1),.st2>div:nth-child(1),.st2>div:nth-child(2),.st3>div:nth-child(1),.st3>div:nth-child(2),.st3>div:nth-child(3){
+.st1>div:nth-child(1)>div,.st2>div:nth-child(1)>div,.st2>div:nth-child(2)>div,.st3>div:nth-child(1)>div,.st3>div:nth-child(2)>div,.st3>div:nth-child(3)>div{
 	background: black!important;
 }
 #task{
-	height: 50%;
+	height: 100%;
+	width: 100%;
 	box-sizing: border-box;
 	text-align: center;
 	font-size: 110px;
-	position: relative;
-}
-#task div{
-	position: absolute;
-	top: 50%;
-	margin-top: -55px;
-	width: 100%;
 	text-align: center;
 }
 #reset, #start{
-	line-height: 4em;
 	text-align: center;
-	font-size: 36px;
-	display: inline-block;
+	font-size: 36px;	
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	display: table;
+}
+#resetTRUE, #start{
 	cursor: pointer;
-	position: relative;
-	height: 22%;
 }
-#start{
-	top:77%;
-}
-#reset{
-	height: 10%;
+#reset>div, #start>div, #task>div{
+	display: table-cell;
+	vertical-align: middle;
 }
 #controls{
-	box-sizing: border-box;
 	border: 1px solid grey;
 	overflow: hidden;
-	transition: all .1s;
 	position: relative;
+	width: 100%;
+	height: 100%;
+}
+#controls>div{
+	float: left;
+	font-size: 50px;
+	width: 20%;
+	height: 50%;
+	border: 1px solid grey;
+	box-sizing: border-box;
+	display: table;
+}
+#controls>div>div{
+	display: table-cell;
+	vertical-align: middle;
 }
 .cor{
 	background: rgb(189, 255, 192);
