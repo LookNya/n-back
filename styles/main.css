@@ -92,6 +92,7 @@ body{
 #records, #stages{
 	width: 40%;
 	margin: 0 auto;
+	font-size: 2.2vh;
 }
 .begining #task,.begining #controls,.begining #reset,.begining #gbcount{
 	display: none!important;
@@ -152,11 +153,13 @@ body{
 	box-sizing: border-box;
 	text-align: center;
 	font-size: 110px;
+	font-size: 17.1vh;
 	text-align: center;
 }
 #reset, #start{
 	text-align: center;
 	font-size: 36px;	
+	font-size: 4.4vh;
 	height: 100%;
 	width: 100%;
 	box-sizing: border-box;
@@ -179,38 +182,24 @@ body{
 #controls>div{
 	float: left;
 	font-size: 50px;
+	font-size: 8vh;
 	width: 20%;
 	height: 50%;
 	border: 1px solid grey;
 	box-sizing: border-box;
 	display: table;
+	cursor: pointer;
 }
 #controls>div>div{
 	display: table-cell;
 	vertical-align: middle;
 }
+
 .cor{
 	background: rgb(189, 255, 192);
 }
 .err{
 	background: rgb(255, 200, 200);
-}
-.nbut{
-	cursor: pointer;
-	width: 20%;
-	height: 16%;
-	box-sizing: border-box;
-	float: left;
-	border: 1px solid grey;
-	font-size: 36px;
-	position: relative;
-}
-.nbut div{
-	position: absolute;
-	top: 50%;
-	margin-top: -18px;
-	width: 100%;
-	text-align: center;
 }
 /*                 utils                   */
 .f_l{
