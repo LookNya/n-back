@@ -89,7 +89,7 @@ game = {
 		}
 	},
 	getRecords: function(stage){
-		if(localStorage['myData4']){
+		if(localStorage.getItem('myData4')){
 			var buff = JSON.parse(localStorage.getItem('myData4')).data
 			for(var i = 0; i<game.allStages; i++){
 				if(buff[i][0]==stage){
