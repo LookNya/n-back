@@ -19,14 +19,16 @@ game = {
 	allStages: 1,
 	startSecs: 0,
 	secsViewInterval: '',
-	start: function(){
+	start: function(e){
+		e.preventDefault()
 		content.className = 'enter'
 		game.step = 0
 		clearInterval(game.secsViewInterval)
 		game.enter()
 		
 	},
-	reset: function(){
+	reset: function(e){
+		if(e)e.preventDefault()
 		content.className = 'begining'
 		secs.innerHTML = ''
 		game.step = 0
@@ -35,6 +37,7 @@ game = {
 		game.initRecordsDiv()
 	},
 	nbutClick: function(e){
+		e.preventDefault()
 		var num = (e.target.dataset.num)%10
 		if(num == (game.prev[0])%10){
 			game.respCorr(true)
@@ -77,7 +80,7 @@ game = {
 		game.prev[game.prev.length-1] = first*second
 		task.innerHTML = '<div>'+first+' * '+second+'</div>'
 		game.step++
-		if(game.step == 3){
+		if(game.step == 10){
 			game.end()
 		}
 		if(game.step == 1){
@@ -87,7 +90,7 @@ game = {
 	},
 	getRecords: function(stage){
 		if(localStorage['myData4']){
-			var buff = JSON.parse(localStorage['myData4']).data
+			var buff = JSON.parse(localStorage.getItem('myData4')).data
 			for(var i = 0; i<game.allStages; i++){
 				if(buff[i][0]==stage){
 					return buff[i][1]
@@ -98,8 +101,8 @@ game = {
 		}
 	},
 	saveRecord: function(stage, record){
-		if(localStorage['myData4']){
-			var buff = JSON.parse(localStorage['myData4']).data
+		if(localStorage.getItem('myData4')){
+			var buff = JSON.parse(localStorage.getItem('myData4')).data
 			for(var i = 0; i<game.allStages; i++){
 				if(buff[i][0]==stage){
 					buff[i][1] = record
@@ -108,11 +111,11 @@ game = {
 				}
 			}
 			
-			localStorage['myData4']=JSON.stringify({"data":buff})
+			localStorage.setItem('myData4', JSON.stringify({"data":buff}))
 			return;
 		}	
 		var buff =[[stage],[record]]
-		localStorage['myData4']=JSON.stringify({"data":[buff]})
+		localStorage.setItem('myData4', JSON.stringify({"data":[buff]}))
 	},
 	end: function(){
 		clearInterval(game.secsViewInterval)
