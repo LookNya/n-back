@@ -101,11 +101,11 @@ game = {
 				if(buff[i][0]==stage){
 					return buff[i][1]
 				} else {
-					return 0
+					return 999999
 				}
 			}
 		} else {
-			return 0
+			return 9999999
 		}
 	},
 	saveRecord: function(stage, record){
