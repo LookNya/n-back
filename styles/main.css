@@ -54,11 +54,12 @@ body{
 	width: 100%!important;
 	height: 100%!important;
 }
-* {
-    -webkit-tap-highlight-color: transparent;
-}
+
 
 /*                 core                   */
+#start, #reset, .nbut{
+    -webkit-tap-highlight-color: transparent;
+}
 #content{
 	text-align: center;
 	height: 100%;
