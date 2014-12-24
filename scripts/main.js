@@ -4,11 +4,11 @@ document.onreadystatechange = function () {
     }
 }
 function init(){
-	start.addEventListener('touchstart',game.start)
-	resetTRUE.addEventListener('touchstart',game.reset)
+	start.addEventListener('click',game.start)
+	resetTRUE.addEventListener('click',game.reset)
 	for(var i = 0; i < document.getElementsByClassName('nbut').length; i++){
 		game.setNums(i)
-		document.getElementsByClassName('nbut')[i].addEventListener('touchstart', game.nbutClick)
+		document.getElementsByClassName('nbut')[i].addEventListener('click', game.nbutClick)
 	}
 	game.initRecordsDiv()
 
@@ -19,6 +19,7 @@ game = {
 	allStages: 1,
 	startSecs: 0,
 	secsViewInterval: '',
+	lsDB: 'myData5',
 	start: function(e){
 		e.preventDefault()
 		content.className = 'enter'
@@ -98,11 +99,13 @@ game = {
 					return 0
 				}
 			}
+		} else {
+			return 0
 		}
 	},
 	saveRecord: function(stage, record){
-		if(localStorage.getItem('myData4')){
-			var buff = JSON.parse(localStorage.getItem('myData4')).data
+		if(localStorage.getItem(game.lsDB)){
+			var buff = JSON.parse(localStorage.getItem(game.lsDB)).data
 			for(var i = 0; i<game.allStages; i++){
 				if(buff[i][0]==stage){
 					buff[i][1] = record
@@ -111,11 +114,11 @@ game = {
 				}
 			}
 			
-			localStorage.setItem('myData4', JSON.stringify({"data":buff}))
+			localStorage.setItem(game.lsDB, JSON.stringify({"data":buff}))
 			return;
 		}	
 		var buff =[[stage],[record]]
-		localStorage.setItem('myData4', JSON.stringify({"data":[buff]}))
+		localStorage.setItem(game.lsDB, JSON.stringify({"data":[buff]}))
 	},
 	end: function(){
 		clearInterval(game.secsViewInterval)
