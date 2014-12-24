@@ -4,11 +4,11 @@ document.onreadystatechange = function () {
     }
 }
 function init(){
-	start.addEventListener('click',game.start)
-	resetTRUE.addEventListener('click',game.reset)
+	start.addEventListener('touchstart',game.start)
+	resetTRUE.addEventListener('touchstart',game.reset)
 	for(var i = 0; i < document.getElementsByClassName('nbut').length; i++){
 		game.setNums(i)
-		document.getElementsByClassName('nbut')[i].addEventListener('click', game.nbutClick)
+		document.getElementsByClassName('nbut')[i].addEventListener('touchstart', game.nbutClick)
 	}
 	game.initRecordsDiv()
 
