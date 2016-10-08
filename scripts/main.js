@@ -1,22 +1,21 @@
 document.onreadystatechange = function () {
-    if (document.readyState == "complete") {
-        init();
-    }
+		if (document.readyState == "complete") {
+				init();
+		}
 }
 function init(){
 	var clickEvent = 'click'
 	if ('ontouchstart' in window) {
 		clickEvent = 'touchstart'
 	}
-	
-	start.addEventListener(clickEvent,game.start)
-	resetTRUE.addEventListener(clickEvent,game.reset)
+
+	start.addEventListener(clickEvent, game.start)
+	resetTRUE.addEventListener(clickEvent, game.reset)
 	for(var i = 0; i < document.getElementsByClassName('nbut').length; i++){
 		game.setNums(i)
 		document.getElementsByClassName('nbut')[i].addEventListener(clickEvent, game.nbutClick)
 	}
 	game.initRecordsDiv()
-
 }
 
 game = {
@@ -31,7 +30,6 @@ game = {
 		game.step = 0
 		clearInterval(game.secsViewInterval)
 		game.enter()
-		
 	},
 	reset: function(e){
 		if(e)e.preventDefault()
@@ -77,9 +75,9 @@ game = {
 	step: 0,
 	prev: [0,0],
 	newStep: function(){
-	
+
 		var first = utils.rnd10(), second = utils.rnd10()
-		
+
 		for(var i=0; i<game.prev.length-1; i++){
 			game.prev[i] = game.prev[i+1]
 		}
@@ -118,10 +116,10 @@ game = {
 				buff.push([[stage],[record]])
 				}
 			}
-			
+
 			localStorage.setItem(game.lsDB, JSON.stringify({"data":buff}))
 			return;
-		}	
+		}
 		var buff =[[stage],[record]]
 		localStorage.setItem(game.lsDB, JSON.stringify({"data":[buff]}))
 	},
@@ -140,7 +138,6 @@ game = {
 	respCorr: function(correct){
 		clearTimeout(game.respColorTimeout)
 		controls.className = ''
-		
 		if(correct){
 			controls.className = 'cor'
 		} else {
@@ -149,14 +146,14 @@ game = {
 		game.respColorTimeout = setTimeout(function(){controls.className = ''}, 150)
 	},
 	refreshSecs: function(){
-		secs.innerHTML =  utils.normalTime(new Date() - game.startSecs)	
+		secs.innerHTML =  utils.normalTime(new Date() - game.startSecs)
 	},
 	initRecordsDiv: function(){
 		var str = ''
 		for(var i = 0; i<game.allStages; i++){
 			var lol = i+1
-			str += 'Рекорд стадии '+lol+' — '+utils.normalTime(game.getRecords(i)) + '<br>'
-		}	
+			str += 'Рекорд стадии '+lol+' – '+utils.normalTime(game.getRecords(i)) + '<br>'
+		}
 		records.innerHTML = str
 	}
 }
